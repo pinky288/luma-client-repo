@@ -1,4 +1,4 @@
-# EduNexus - Professional Learning Platform (Client Side)
+# Luma - Professional Learning Platform (Client Side)
 
 A premium, full-stack skill-sharing platform built with the MERN stack, featuring a modern UI and seamless learning experience.
 
