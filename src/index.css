@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #000000;
+  --color-primary: #90ee90;
+  --color-secondary: #ffffff;
+}
+
+:root {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* --- Normal Font & No Text Transform --- */
+* {
+  font-family: sans-serif !important; 
+  box-sizing: border-box;
+  text-transform: none !important; 
+  letter-spacing: normal !important; 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* টেলউইন্ডের ডিফল্ট বাটন বা ইনপুট থেকেও স্টাইল রিমুভ করা */
+button, h1, h2, h3, h4, h5, h6, span, p, a {
+  text-transform: none !important;
+  font-variant: normal !important;
+}
+
+/* --- মোশন অ্যানিমেশন --- */
+@keyframes float-motion {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -40px) scale(1.1); }
+  66% { transform: translate(-40px, 60px) scale(0.9); }
+}
+
+.custom-motion-bg {
+  animation: float-motion 12s infinite ease-in-out;
+}
+
+/* কাস্টম স্ক্রলবার (ডার্ক থিমের জন্য) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #90ee90;
+}
