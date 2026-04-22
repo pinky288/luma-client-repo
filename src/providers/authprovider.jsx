@@ -12,7 +12,6 @@ import {
 import { initializeApp } from "firebase/app";
 import axios from "axios";
 
-// ১. এটি নিশ্চিত করবে যে প্রতিটি Axios রিকোয়েস্টের সাথে কুকি আদান-প্রদান হবে
 axios.defaults.withCredentials = true;
 
 export const authcontext = createContext(null);
@@ -76,20 +75,17 @@ const AuthProvider = ({ children }) => {
                 const loggedUser = { email: currentuser.email };
 
                 try {
-                    // ২. প্রথমে ইউজার ডাটাবেসে সেভ করা
-                    await axios.post('http://localhost:5000/users', userinfo);
+                    await axios.post('https://luma-server.vercel.app/users', userinfo);
 
-                    // ৩. তারপর JWT টোকেন সেট করা
-                    await axios.post('http://localhost:5000/jwt', loggedUser);
+                    await axios.post('https://luma-server.vercel.app/jwt', loggedUser);
                     
                     console.log('User synced and Token set in cookie');
                 } catch (error) {
                     console.error('Auth sync error:', error);
                 }
             } else {
-                // ৪. লগআউট করলে টোকেন ক্লিয়ার করা
                 try {
-                    await axios.post('http://localhost:5000/logout');
+                    await axios.post('https://luma-server.vercel.app/logout');
                     console.log('Logged out and cookie cleared');
                 } catch (error) {
                     console.error('Logout error:', error);

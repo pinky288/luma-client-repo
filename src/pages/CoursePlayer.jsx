@@ -36,16 +36,14 @@ const CoursePlayer = () => {
   const [showCert, setShowCert] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Dynamic Browser Title
   useEffect(() => {
     document.title = showQuiz ? "Final Assessment | Luma" : `${currentLesson.title} | Luma Learning`;
   }, [currentLesson, showQuiz]);
 
-  // Load Progress from DB
   useEffect(() => {
     const fetchProgress = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/progress/${user._id}/${courseId}`);
+        const response = await axios.get(`https://luma-server.vercel.app/progress/${user._id}/${courseId}`);
         const { completedLessons } = response.data;
         if (completedLessons) {
           const updated = lessons.map(l => ({ ...l, isCompleted: completedLessons.includes(l.id) }));
@@ -63,11 +61,10 @@ const CoursePlayer = () => {
   const toggleComplete = async () => {
     if (currentLesson.isCompleted) return;
     try {
-      await axios.patch('http://localhost:5000/update-progress', { userId: user._id, courseId, lessonId: currentLesson.id });
+      await axios.patch('https://luma-server.vercel.app/update-progress', { userId: user._id, courseId, lessonId: currentLesson.id });
       const updated = lessons.map(l => l.id === currentLesson.id ? { ...l, isCompleted: true } : l);
       setLessons(updated);
       
-      // Auto-Next Logic
       const currentIndex = lessons.findIndex(l => l.id === currentLesson.id);
       if (currentIndex < lessons.length - 1) {
         setCurrentLesson(lessons[currentIndex + 1]);

@@ -18,25 +18,22 @@ const OrderHistory = () => {
   const userEmail = user?.email;
 
   const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://luma-server.vercel.app',
     withCredentials: true 
   });
 
   useEffect(() => {
     const confirmAndFetch = async () => {
-      // ইউজারের ইমেইল লোড হওয়া পর্যন্ত অপেক্ষা করবে
       if (authLoading || !userEmail) return;
 
       setLoading(true);
       try {
-        // ১. পেমেন্ট কনফার্মেশন লজিক
         if (sessionId) {
           console.log("Sending sessionId to Backend:", sessionId);
           const response = await axiosSecure.post("/confirm-payment", { sessionId });
           
           if (response.data.success) {
             console.log("Response from Backend:", response.data);
-            // সাকসেস হলে URL থেকে কুয়েরি প্যারামিটার সরিয়ে ফেলবে
             navigate('/dashboard/payments', { replace: true });
             
             await Swal.fire({
@@ -47,13 +44,11 @@ const OrderHistory = () => {
               color: '#fff',
               confirmButtonColor: '#90ee90'
             });
-            // পেমেন্ট সফল হওয়ার পর সরাসরি ফেচ ফাংশন কল
             await fetchOrders();
             return;
           }
         }
 
-        // ২. পেমেন্ট সেশন না থাকলে বা কনফার্মেশন শেষ হলে সাধারণ ফেচ
         await fetchOrders();
 
       } catch (err) {

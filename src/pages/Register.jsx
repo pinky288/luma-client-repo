@@ -22,11 +22,8 @@ const Register = () => {
     const password = form.password.value;
 
     try {
-      // ১. ইউজার তৈরি করা
       await createuser(email, password);
-      // ২. নাম এবং ছবি আপডেট করা
       await updateuserprofile(name, photo);
-      // ৩. অটো-লগইন বন্ধ করতে লগআউট
       await logout();
 
       Swal.fire({

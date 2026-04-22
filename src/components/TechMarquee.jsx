@@ -34,7 +34,6 @@ const TechMarquee = () => {
   return (
     <section className="py-20 bg-black overflow-hidden border-y border-white/5 relative">
       
-      {/* ১. Title Section - Normal Font */}
       <div className="max-w-7xl mx-auto px-6 mb-12 text-center">
         <p className="text-4xl md:text-6xl font-bold text-white mb-6">
           Tools you will <span className="text-[#90ee90]">
@@ -42,7 +41,6 @@ const TechMarquee = () => {
         </p>
       </div>
 
-      {/* ২. Gradient Fades (ডান এবং বাম পাশে হালকা আবছা এফেক্ট) */}
       <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
       <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
@@ -50,10 +48,10 @@ const TechMarquee = () => {
         {/* Infinite Scroll Container */}
         <motion.div
           className="flex whitespace-nowrap gap-16 md:gap-24 items-center"
-          animate={{ x: ["0%", "-33.33%"] }} // ৩ বার ডুপ্লিকেট অনুযায়ী এনিমেশন
+          animate={{ x: ["0%", "-33.33%"] }} 
           transition={{
             ease: "linear",
-            duration: 30, // স্পিড আপনার ইচ্ছেমতো বাড়াতে/কমাতে পারেন
+            duration: 30, 
             repeat: Infinity,
           }}
         >
@@ -65,7 +63,6 @@ const TechMarquee = () => {
               <span className="text-4xl md:text-5xl">
                 {tech.icon}
               </span>
-              {/* ৩. Normal Font (কোনো Bold বা Tracking নেই) */}
               <span className="text-lg md:text-xl font-normal">
                 {tech.name}
               </span>

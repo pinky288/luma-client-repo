@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowUpRight, FiBookOpen, FiClock } from 'react-icons/fi';
-import { Link } from 'react-router-dom'; // এটি অবশ্যই ইমপোর্ট করতে হবে
+import { Link } from 'react-router-dom'; 
 
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/courses')
+    fetch('https://luma-server.vercel.app/courses')
       .then(res => res.json())
       .then(data => {
         setCourses(data.slice(0, 3)); 

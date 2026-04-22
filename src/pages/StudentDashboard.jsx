@@ -39,14 +39,12 @@ const StudentDashboard = () => {
         </div>
       </div>
 
-      {/* ডান পাশের কন্টেন্ট (Main Content) */}
       <div className="flex-grow p-12 overflow-y-auto">
         <header className="mb-12">
           <h1 className="text-3xl font-bold text-white ">welcome back, {user?.displayName}</h1>
           <p className="text-gray-500 text-sm">manage your learning and profile settings</p>
         </header>
 
-        {/* ট্যাব অনুযায়ী কন্টেন্ট চেঞ্জ হবে */}
         <div className="bg-[#0d0d0d] border border-white/5 rounded-3xl p-10">
           {activeTab === 'my-courses' ? (
             <div>

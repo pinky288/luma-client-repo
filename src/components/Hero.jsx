@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion'; // Framer motion import করুন
+import { motion } from 'framer-motion'; 
 
 const Hero = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    // ... আপনার আগের ক্যানভাস অ্যানিমেশন কোড (একদম একই থাকবে)
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -86,38 +85,36 @@ const Hero = () => {
     return () => window.removeEventListener('resize', resize);
   }, []);
 
-  // --- অ্যানিমেশন ভেরিয়েন্ট ডিফাইন করা ---
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1, // প্রতিটি ওয়ার্ডের মাঝখানে ০.১ সেকেন্ড গ্যাপ
+        staggerChildren: 0.1, 
       },
     },
   };
 
   const wordVariants = {
-    hidden: { opacity: 0, y: 30 }, // শুরুতে নিচে এবং অদৃশ্য
+    hidden: { opacity: 0, y: 30 }, 
     visible: {
       opacity: 1,
-      y: 0, // নিজের জায়গায় আসবে
+      y: 0, 
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1], // সুন্দর স্মুথ ease
+        ease: [0.22, 1, 0.36, 1], 
       },
     },
   };
 
-  // টেক্সটগুলোকে ওয়ার্ডে ভাগ করার ফাংশন
   const splitText = (text) => {
     return text.split(' ').map((word, index) => (
       <motion.span
         key={index}
-        className="inline-block" // inline-block জরুরি যাতে ওয়ার্ডগুলো আলাদা অ্যানিমেট হয়
+        className="inline-block" 
         variants={wordVariants}
       >
-        {word}&nbsp; {/* স্পেস বজায় রাখার জন্য */}
+        {word}&nbsp; 
       </motion.span>
     ));
   };
@@ -125,10 +122,8 @@ const Hero = () => {
   return (
     <section className="relative min-h-[90vh] flex flex-col items-center justify-center text-center bg-black overflow-hidden px-6 font-sans">
       
-      {/* হাইলাইটেড মোশন ব্যাকগ্রাউন্ড */}
       <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-80" />
 
-      {/* মেইন কন্টেন্ট - মোশন কন্টেইনার */}
       <motion.div
         className="relative z-10 max-w-4xl pt-10"
         initial="hidden"
@@ -136,7 +131,6 @@ const Hero = () => {
         variants={containerVariants}
       >
         
-        {/* ক্লিন ব্যাজ - এটিও অ্যানিমেট হবে */}
         <motion.div 
             className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-sm font-medium text-[#90ee90] border border-[#90ee90]/20 rounded-md bg-[#90ee90]/5"
             variants={wordVariants}
@@ -144,21 +138,18 @@ const Hero = () => {
           Advanced Skill-Sharing Platform
         </motion.div>
 
-        {/* টাইটেল - ওয়ার্ড বাই ওয়ার্ড অ্যানিমেশন */}
         <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
           {splitText("Learn at the Speed")} <br /> 
           of <span className="text-[#90ee90]">{splitText("Light.")}</span>
         </h1>
         
-        {/* সাবটাইটেল - ওয়ার্ড বাই ওয়ার্ড অ্যানিমেশন */}
         <motion.p 
             className="max-w-2xl mx-auto text-lg text-gray-400 mb-12 font-normal leading-relaxed opacity-90"
-            variants={wordVariants} // সাবটাইটেল পুরোটা একসাথে আসবে, বা চাইলে splitText ব্যবহার করতে পারেন
+            variants={wordVariants} 
         >
           A premium learning experience designed for the modern world. Master high-demand skills with professional instructors.
         </motion.p>
         
-        {/* বাটন - এগুলোও হালকা ডিলে দিয়ে আসবে */}
         <motion.div 
             className="flex flex-col sm:flex-row gap-5 justify-center items-center"
             variants={containerVariants}

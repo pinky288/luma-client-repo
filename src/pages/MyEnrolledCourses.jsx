@@ -3,7 +3,6 @@ import { FiPlay, FiBookOpen, FiImage } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 const MyEnrolledCourses = () => {
-  // আপনার কোর্সের ডাটা
   const courses = [
     {
       id: 1,
@@ -24,19 +23,16 @@ const MyEnrolledCourses = () => {
   return (
     <div className="p-4 md:p-8 animate-in fade-in duration-700">
       
-      {/* Header Section */}
       <div className="mb-10">
         <h1 className="text-3xl font-bold text-white tracking-tight">My Learning</h1>
         <p className="text-gray-500 text-sm mt-2 font-medium tracking-wide">Continue where you left off and reach your goals.</p>
       </div>
 
-      {/* Courses Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {courses.map((course) => (
           <CourseCard key={course.id} course={course} />
         ))}
 
-        {/* Add More Section (Placeholder for new discovery) */}
         <div className="border-2 border-white/5 border-dashed rounded-[2.5rem] flex flex-col items-center justify-center p-12 text-center hover:bg-white/5 hover:border-[#90ee90]/20 transition-all cursor-pointer group">
           <div className="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
             <FiBookOpen className="text-gray-500 group-hover:text-[#90ee90]" size={24} />
@@ -49,7 +45,6 @@ const MyEnrolledCourses = () => {
   );
 };
 
-// আলাদা সাব-কম্পোনেন্ট ইমেজ এরর হ্যান্ডেল করার জন্য
 const CourseCard = ({ course }) => {
   const [imgError, setImgError] = useState(false);
 
@@ -66,14 +61,12 @@ const CourseCard = ({ course }) => {
             onError={() => setImgError(true)} 
           />
         ) : (
-          /* Smart Placeholder: ইমেজ না থাকলে এটি দেখাবে */
           <div className="flex flex-col items-center gap-3">
             <FiImage className="text-white/10" size={48} />
             <span className="text-[10px] text-white/5 font-bold  tracking-[0.2em]">EduNexus Preview</span>
           </div>
         )}
         
-        {/* Play Button Overlay */}
         <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
           <Link to={`/watch/${course.id}`} className="bg-[#90ee90] p-4 rounded-full text-black shadow-xl shadow-[#90ee90]/20 scale-75 group-hover:scale-100 transition-all duration-300">
             <FiPlay size={24} fill="currentColor" />
@@ -81,7 +74,6 @@ const CourseCard = ({ course }) => {
         </div>
       </div>
 
-      {/* Content Section */}
       <div className="p-7 space-y-6">
         <div>
           <h3 className="text-lg font-bold text-white leading-snug group-hover:text-[#90ee90] transition-colors line-clamp-2">
@@ -90,7 +82,6 @@ const CourseCard = ({ course }) => {
           <p className="text-gray-500 text-[11px] mt-2 font-bold tracking-widest ">By {course.instructor}</p>
         </div>
 
-        {/* Progress Tracker */}
         <div className="space-y-3">
           <div className="flex justify-between items-end">
              <span className="text-[10px] font-bold text-gray-600  tracking-widest">Progress</span>

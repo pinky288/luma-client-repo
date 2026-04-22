@@ -8,17 +8,14 @@ const Wishlist = () => {
   const [wishlistCourses, setWishlistCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // ১. ডাইনামিক টাইটেল
   useEffect(() => {
     document.title = "My Wishlist | Dashboard";
     
-    // এখানে আপনার ব্যাকএন্ড থেকে ইউজারের উইশলিস্টে থাকা কোর্সগুলো ফেচ করবেন
-    // উদাহরণস্বরূপ: fetch('http://localhost:5000/user-wishlist')
-    fetch('http://localhost:5000/courses') // আপাতত সব কোর্স এনে ফিল্টার করে দেখাচ্ছি
+  
+    fetch('https://luma-server.vercel.app/courses') 
       .then(res => res.json())
       .then(data => {
-        // এখানে লজিক হবে: যদি কোর্সের আইডি ইউজারের উইশলিস্ট অ্যারেতে থাকে
-        // আপাতত ডেমো হিসেবে প্রথম ৩টি কোর্স দেখাচ্ছি
+        
         setWishlistCourses(data.slice(0, 3)); 
         setLoading(false);
       })
@@ -28,7 +25,6 @@ const Wishlist = () => {
       });
   }, []);
 
-  // ২. উইশলিস্ট থেকে রিমুভ করার ফাংশন
   const handleRemove = (id, title) => {
     Swal.fire({
       title: 'Are you sure?',
@@ -70,7 +66,6 @@ const Wishlist = () => {
         <p className="text-gray-500 mt-2">You have {wishlistCourses.length} courses saved for later.</p>
       </div>
 
-      {/* Wishlist Grid */}
       <div className="grid grid-cols-1 gap-6">
         <AnimatePresence>
           {wishlistCourses.length > 0 ? (
@@ -83,12 +78,10 @@ const Wishlist = () => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 className="group relative flex flex-col md:flex-row items-center gap-6 bg-[#0d0d0d] border border-white/5 p-4 rounded-2xl hover:border-[#90ee90]/30 transition-all duration-300"
               >
-                {/* Image */}
                 <div className="w-full md:w-48 aspect-video rounded-xl overflow-hidden flex-shrink-0">
                   <img src={course.thumbnail} alt={course.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 </div>
 
-                {/* Content */}
                 <div className="flex-grow">
                   <span className="text-[10px] text-[#90ee90] uppercase tracking-widest bg-[#90ee90]/10 px-2 py-1 rounded">
                     {course.category}
@@ -102,7 +95,6 @@ const Wishlist = () => {
                   </div>
                 </div>
 
-                {/* Actions */}
                 <div className="flex items-center gap-3 w-full md:w-auto">
                   <Link to={`/course/${course._id}`} className="flex-grow md:flex-grow-0">
                     <button className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#90ee90] text-black font-bold rounded-xl hover:bg-white transition-all active:scale-95">

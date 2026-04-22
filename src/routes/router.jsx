@@ -42,7 +42,7 @@ export const router = createBrowserRouter([
       {
         path: "course/:id", 
         element: <CourseDetails />,
-        loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
+        loader: ({params}) => fetch(`https://luma-server.vercel.app/courses/${params.id}`)
       },
       { path: "courses", element: <AllCourses /> },
       { path: "instructors", element: <Instructors /> },

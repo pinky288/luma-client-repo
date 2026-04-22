@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { authcontext } from '../providers/authprovider';
 import { updateProfile } from "firebase/auth"; // Firebase থেকে ইমপোর্ট
 import { FiCamera, FiUser, FiMail, FiLock, FiCheck } from 'react-icons/fi';
-import Swal from 'sweetalert2'; // সাকসেস মেসেজ দেখানোর জন্য (যদি ইন্সটল থাকে)
+import Swal from 'sweetalert2'; 
 
 const ProfileSettings = () => {
   const { user } = useContext(authcontext);
@@ -12,10 +12,9 @@ const ProfileSettings = () => {
     e.preventDefault();
     setLoading(true);
     
-    const name = e.target.name.value; // ইনপুট ফিল্ডের name প্রপার্টি থাকতে হবে
+    const name = e.target.name.value; 
 
     try {
-      // Firebase প্রোফাইল আপডেট লজিক
       await updateProfile(user, {
         displayName: name
       });
@@ -45,7 +44,6 @@ const ProfileSettings = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         
-        {/* Profile Picture Section */}
         <div className="lg:col-span-1 flex flex-col items-center text-center">
           <div className="relative">
             <img 
@@ -63,7 +61,6 @@ const ProfileSettings = () => {
           </div>
         </div>
 
-        {/* Form Section */}
         <div className="lg:col-span-2">
           <form onSubmit={handleUpdate} className="space-y-6">
             
@@ -80,7 +77,6 @@ const ProfileSettings = () => {
               />
             </div>
 
-            {/* Email Address */}
             <div className="space-y-2">
               <label className="text-sm font-semibold text-gray-400 ml-1 flex items-center gap-2">
                 <FiMail size={14} className="text-[#90ee90]" /> Email Address
@@ -94,7 +90,6 @@ const ProfileSettings = () => {
               <p className="text-[11px] text-gray-600 ml-1">* Email cannot be changed for security reasons.</p>
             </div>
 
-            {/* Change Password */}
             <div className="space-y-2 pt-4 border-t border-white/5">
               <label className="text-sm font-semibold text-gray-400 ml-1 flex items-center gap-2">
                 <FiLock size={14} className="text-[#90ee90]" /> Security
@@ -107,7 +102,6 @@ const ProfileSettings = () => {
               </button>
             </div>
 
-            {/* Action Buttons */}
             <div className="pt-6 flex items-center gap-4">
               <button 
                 type="submit" 

@@ -17,7 +17,7 @@ const AllCourses = () => {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:5000/courses')
+    fetch('https://luma-server.vercel.app/courses')
       .then(res => res.json())
       .then(data => {
         setCourses(data);
@@ -30,14 +30,12 @@ const AllCourses = () => {
       });
   }, []);
 
-  // ২. উইশলিস্ট টগল এবং SweetAlert নোটিফিকেশন
   const handleWishlist = (course) => {
     const isExist = wishlist.includes(course._id);
     
     if (isExist) {
       setWishlist(wishlist.filter(id => id !== course._id));
       
-      // রিমুভ করার এলার্ট
       Swal.fire({
         title: 'Removed!',
         text: `${course.title} has been removed from your wishlist.`,
@@ -53,7 +51,6 @@ const AllCourses = () => {
     } else {
       setWishlist([...wishlist, course._id]);
       
-      // অ্যাড করার এলার্ট
       Swal.fire({
         title: 'Added!',
         text: `${course.title} added to wishlist!`,

@@ -26,12 +26,11 @@ const CourseDetails = () => {
     );
   }
 
-  // পেমেন্ট হ্যান্ডেলার ফাংশন (আপডেটেড)
   const handleConfirmEnrollment = async () => {
     setIsProcessing(true);
 
     try {
-      const response = await fetch('http://localhost:5000/create-checkout-session', {
+      const response = await fetch('https://luma-server.vercel.app/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -42,7 +41,6 @@ const CourseDetails = () => {
 
       const session = await response.json();
 
-      // স্ট্রাইপের লেটেস্ট নিয়ম অনুযায়ী সরাসরি session.url এ রিডাইরেক্ট
       if (session.url) {
         window.location.href = session.url;
       } else {
@@ -129,7 +127,6 @@ const CourseDetails = () => {
             )}
           </div>
 
-          {/* Right Side: Pricing Card */}
           <div className="lg:col-span-1">
             <div className="bg-[#0d0d0d] border border-white/5 p-8 rounded-3xl sticky top-28 shadow-2xl">
               <div className="flex items-center justify-between mb-6">
@@ -162,7 +159,6 @@ const CourseDetails = () => {
         </div>
       </div>
 
-      {/* --- Enrollment Modal --- */}
       {showModal && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
           <div 

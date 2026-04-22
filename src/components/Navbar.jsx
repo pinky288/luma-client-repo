@@ -17,7 +17,6 @@ const Navbar = () => {
           </Link>
         </div>
         
-        {/* Navigation Links & Auth Section */}
         <div className="flex gap-8 items-center">
           <Link to="/courses" className="hover:text-[#90ee90] transition-colors font-semibold">
             Courses
@@ -30,7 +29,6 @@ const Navbar = () => {
           </Link>
           
           {user ? (
-            /* প্রোফাইল ইমেজ এবং হোভার ড্রপডাউন */
             <div className="relative group py-2">
               <img 
                 src={user?.photoURL || "https://i.ibb.co.com/v4t6S3f/user.png"} 
@@ -39,7 +37,6 @@ const Navbar = () => {
               />
 
 
-              {/* হোভার করলে এই অংশটি দেখা যাবে */}
               <div className="absolute right-0 top-full mt-2 w-48 bg-[#0d0d0d] border border-white/10 rounded-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 shadow-xl">
                 <div className="flex flex-col gap-4 text-center">
                   <p className="text-white font-semibold text-xs truncate border-b border-white/5 pb-2">

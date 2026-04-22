@@ -51,7 +51,6 @@ const Testimonials = () => {
     <section className="py-24 bg-black px-6">
       <div className="max-w-7xl mx-auto">
         
-        {/* Title & Description */}
         <div className="mb-20 text-center">
           <h2 className="text-white text-4xl md:text-6xl font-normal mb-6">
             Wall of <span className="text-[#90ee90]">Love</span>
@@ -62,7 +61,6 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Masonry Grid Layout */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           {testimonials.map((item, index) => (
             <motion.div
@@ -73,7 +71,6 @@ const Testimonials = () => {
               transition={{ delay: index * 0.1 }}
               className="break-inside-avoid bg-[#0d0d0d] border border-white/5 p-8 rounded-[2rem] hover:border-[#90ee90]/30 transition-all duration-500 group"
             >
-              {/* User Header */}
               <div className="flex items-center gap-4 mb-6">
                 <img 
                   src={item.avatar} 
@@ -84,18 +81,15 @@ const Testimonials = () => {
                   <h4 className="text-white text-base font-normal leading-none">{item.name}</h4>
                   <p className="text-gray-500 text-xs mt-1">{item.role}</p>
                 </div>
-                {/* Twitter-like icon for social feel */}
                 <div className="opacity-20 group-hover:opacity-100 group-hover:text-[#90ee90] transition-all">
                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </div>
               </div>
 
-              {/* Review Content */}
               <p className="text-gray-400 text-base font-normal leading-relaxed ">
                 "{item.content}"
               </p>
 
-              {/* Verified Badge & Date */}
               <div className="mt-6 pt-6 border-t border-white/5 flex justify-between items-center">
                  <span className="text-[10px] text-gray-600  tracking-widest">{item.date}</span>
                  <div className="flex items-center gap-1.5">

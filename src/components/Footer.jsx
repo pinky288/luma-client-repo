@@ -1,6 +1,5 @@
 import React from 'react';
 import { FiGithub, FiTwitter, FiLinkedin, FiMail } from 'react-icons/fi';
-// লোগো ইমেজটি ইমপোর্ট করুন (পাথ ঠিক আছে কি না দেখে নেবেন)
 import Loge from '../assets/luma_Logo.png'; 
 
 const Footer = () => {
@@ -10,7 +9,6 @@ const Footer = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           
-          {/* Brand Section - টেক্সট বাদ দিয়ে লোগো বসানো হয়েছে */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center">
               <img src={Loge} alt="luma logo" className="h-10 w-auto" />
@@ -64,7 +62,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar - কপিরাইট টেক্সট সেন্টারে আনা হয়েছে */}
         <div className="pt-8 border-t border-white/5 flex flex-col items-center gap-6">
           <p className="text-[12px] text-gray-600 text-center">
             © 2026 Luma Learning Platform. All rights reserved.

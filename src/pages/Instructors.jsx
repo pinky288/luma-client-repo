@@ -7,10 +7,10 @@ const Instructors = () => {
   const [filtered, setFiltered] = useState([]);
   const [activeTab, setActiveTab] = useState('all');
   const [loading, setLoading] = useState(true);
-  const [selectedMentor, setSelectedMentor] = useState(null); // মোডাল স্টেট
+  const [selectedMentor, setSelectedMentor] = useState(null); 
 
   useEffect(() => {
-    fetch('http://localhost:5000/instructors')
+    fetch('https://luma-server.vercel.app/instructors')
       .then(res => res.json())
       .then(data => {
         setInstructors(data);
