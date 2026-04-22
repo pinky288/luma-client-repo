@@ -1,16 +1,22 @@
-# React + Vite
+# EduNexus - Professional Learning Platform (Client Side)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, full-stack skill-sharing platform built with the MERN stack, featuring a modern UI and seamless learning experience.
 
-Currently, two official plugins are available:
+##  Features
+* **Interactive Hero Section:** Animated particles with HTML5 Canvas and smooth text animations using Framer Motion.
+* **Course Management:** Browse courses, view details, and manage a personalized wishlist.
+* **Student Dashboard:** Track enrolled courses, payment history, and learning progress.
+* **Secure Payments:** Integrated Stripe payment gateway for course enrollments.
+* **Authentication:** Firebase-powered authentication with JWT integration for secure API calls.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+##  Tech Stack
+* **Frontend:** React.js, Vite
+* **Styling:** Tailwind CSS, Framer Motion, Lucide Icons
+* **State Management:** React Context API
+* **Data Fetching:** Axios
+* **Deployment:** Firebase Hosting
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+##  Installation & Setup
+1. **Clone the repository:**
+   ```bash
+   git clone <your-client-repo-url>
